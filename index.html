@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#253B7C">
+<meta name="robots" content="noindex,nofollow">
+<title>Nenagh AFC Kit Fitting · Espir Sports</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <img class="crest" src="nenagh-crest.jpg" alt="Nenagh AFC crest" width="96" height="96">
+  <div class="titles">
+    <h1>Nenagh AFC</h1>
+    <div class="sub">Kit Fitting Order</div>
+    <div class="by"><img src="espir-logo.png" alt="" height="18"> Kit by Espir Sports</div>
+  </div>
+  <a class="navbtn" id="navbtn" href="#orders">Orders</a>
+</header>
+
+<main id="view-form">
+  <section class="card">
+    <label class="lbl" for="cname">Parent / customer name *</label>
+    <input id="cname" class="big" autocomplete="off" placeholder="e.g. Mary Ryan">
+    <label class="lbl" for="cphone">Phone number *</label>
+    <input id="cphone" class="big" type="tel" inputmode="tel" autocomplete="off" placeholder="e.g. 087 123 4567">
+    <label class="lbl" for="cplayer">Player name (optional)</label>
+    <input id="cplayer" class="big" autocomplete="off" placeholder="e.g. Jack, U10">
+  </section>
+
+  <div id="lines"></div>
+  <button id="addline" class="btn ghost wide">+ Add another item</button>
+
+  <section class="card">
+    <label class="lbl" for="cnotes">Notes (optional)</label>
+    <textarea id="cnotes" rows="2" placeholder="Anything Paddy needs to remember"></textarea>
+  </section>
+
+  <div class="subtotal" id="subtotal">
+    <div class="st-label">Subtotal</div>
+    <div class="st-amt" id="st-amt">€0.00</div>
+    <div class="st-items" id="st-items">No items yet</div>
+  </div>
+  <div id="formerr" class="err" hidden></div>
+  <button id="process" class="btn primary huge">Process payment</button>
+  <p class="foot">Saves the order as <b>Awaiting payment</b>. Take payment at the end in <b>Orders</b>.</p>
+</main>
+
+<main id="view-done" hidden>
+  <section class="card done">
+    <div class="tick">✓</div>
+    <div class="doneh">Order saved</div>
+    <div class="ordno" id="d-no"></div>
+    <div id="d-sum"></div>
+    <div class="d-total" id="d-total"></div>
+    <div class="pill await">Awaiting payment</div>
+  </section>
+  <button id="next" class="btn primary huge">Next parent</button>
+</main>
+
+<main id="view-orders" hidden>
+  <section class="card" id="pinbox">
+    <div class="doneh">Orders – enter PIN</div>
+    <input id="pin" class="big pin" type="password" inputmode="numeric" maxlength="6" autocomplete="off" placeholder="PIN">
+    <div id="pinerr" class="err" hidden>Wrong PIN</div>
+    <button id="pinok" class="btn primary huge">Open orders</button>
+  </section>
+  <div id="orders" hidden>
+    <div class="stats" id="stats"></div>
+    <div class="tabs">
+      <button class="tab on" data-f="await">Awaiting</button>
+      <button class="tab" data-f="paid">Paid</button>
+      <button class="tab" data-f="all">All</button>
+    </div>
+    <input id="search" class="big" placeholder="Search name or phone">
+    <div id="olist"></div>
+    <section class="card tools">
+      <button id="csv" class="btn primary wide">Export CSV</button>
+      <button id="backup" class="btn ghost wide">Download backup</button>
+      <label class="btn ghost wide filebtn">Restore backup<input id="restore" type="file" accept=".json,application/json" hidden></label>
+      <button id="lock" class="btn ghost wide">Lock orders</button>
+      <p class="foot">Orders are saved on this phone/tablet. Use the same device all day, and export the CSV at the end.</p>
+    </section>
+  </div>
+</main>
+<script src="catalog.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
